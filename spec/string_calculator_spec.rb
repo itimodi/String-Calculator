@@ -27,8 +27,16 @@ RSpec.describe StringCalculator do
       expect(calculator.add("1\n2,3")).to eq(6)
     end
 
-    it "supports different delimiters" do
+    it "return sum if new lines seperator added between all the numbers" do
+      expect(calculator.add("1\n2\n3\n4")).to eq(10)
+    end
+
+    it "supports different delimiters 'Semicolon'" do
       expect(calculator.add("//;\n1;2;3")).to eq(6)
+    end
+
+    it "supports different delimiters 'Colon'" do
+      expect(calculator.add("//:\n1:2:3")).to eq(6)
     end
 
     it "throw an exception for negative numbers" do
